@@ -1,0 +1,21 @@
+[debug] [2023-04-16T07:32:09.158Z] ----------------------------------------------------------------------
+[debug] [2023-04-16T07:32:09.160Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Умиджон\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-04-16T07:32:09.161Z] CLI Version:   11.27.0
+[debug] [2023-04-16T07:32:09.161Z] Platform:      win32
+[debug] [2023-04-16T07:32:09.162Z] Node Version:  v16.17.0
+[debug] [2023-04-16T07:32:09.164Z] Time:          Sun Apr 16 2023 12:32:09 GMT+0500 (Узбекистан, стандартное время)
+[debug] [2023-04-16T07:32:09.164Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-16T07:32:09.171Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-16T07:32:09.172Z] > authorizing via signed-in user (xolmuminovumidjon0@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\github\webrtc-clone
+

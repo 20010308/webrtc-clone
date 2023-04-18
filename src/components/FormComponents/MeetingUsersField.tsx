@@ -25,6 +25,8 @@ function MeetingUsersField(
             error: Array<string>
         }
   ) {
+
+    console.log(options);
     return (
         <EuiFormRow label={label} isInvalid={isInvalid} error={error}>
             <EuiComboBox

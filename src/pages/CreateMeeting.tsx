@@ -29,7 +29,7 @@ function CreateMeeting() {
                         icon={<EuiImage size="5rem" alt='Error' src={meeting2} />}
                         title={`Create video confirence.`}
                         description="Invite multiple persons to the meeting."
-                        onClick={() => {navigate('/videoconfirence')}}
+                        onClick={() => {navigate('/create-video-confirence')}}
                         paddingSize={'xl'}
                     />
                 </EuiFlexItem>

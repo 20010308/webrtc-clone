@@ -10,21 +10,22 @@ export default function UseFetchUsers(){
     const uid = useAppSelector((zoom) => zoom.auth.userInfo?.uid);
 
     useEffect(() => {
-        if (uid){
-            const getUsers = async () => {
-                const fireStoreQuery = query(userRef, where("uid","!=",uid));
-                const data = await getDocs(fireStoreQuery);
+        if (uid) {
+            const getUser = async () => {
+                const firestoreQuery = query(userRef, where("uid", "!=", uid));
+                const data = await getDocs(firestoreQuery);
                 const firebaseUsers: Array<UserType> = [];
+                console.log(data);
                 data.forEach((user) => {
-                    const userData = user.data() as UserType;
+                    const userData: UserType = user.data() as UserType;
                     firebaseUsers.push({
                         ...userData,
-                        label: userData.label,
+                        label: userData.name,
                     });
                 });
                 setUsers(firebaseUsers);
             };
-            getUsers();
+            getUser();
         }
     }, [uid]);
 

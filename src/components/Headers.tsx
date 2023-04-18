@@ -6,15 +6,27 @@ import {EuiHeader, EuiText, EuiTextColor, EuiFlexItem, EuiFlexGroup, EuiButtonIc
 import {firebaseAuth} from "../utils/FirebaseConfig";
 import {signOut} from "firebase/auth"
 import {changeTheme} from '../app/slices/AuthSlices';
-import {getCreateMeetingBreadCrumbs} from "../utils/breadCrumbs";
+import {
+    getCreateMeetingBreadCrumbs, getMeetingsBreadCrumbs,
+    getMyMeetingsBreadCrumbs,
+    getOneOnOneMeetingBreadCrumbs,
+    getVideoConferenceBreadCrumbs
+} from "../utils/breadCrumbs";
+import {BreadCrumbsType} from "../utils/Types";
+
 
 function Headers() {
+
 
     const navigate = useNavigate();
     const location = useLocation();
     const userName = useAppSelector((zoom) => zoom.auth.userInfo?.name);
     const isDarkTheme = useAppSelector((zoom) => zoom.auth.isDarkTheme);
-    const [breadCrumbs, setBreadCrumbs] = useState([{text: "Dashboard"}]);
+    const [breadCrumbs, setBreadCrumbs] = useState<Array<BreadCrumbsType>>([
+        {
+            text: "Dashboard",
+        },
+    ]);
     const [isResponsive, setIsResponsive] = useState(false);
     const dispatch = useDispatch();
     const logout = () => {
@@ -32,7 +44,11 @@ function Headers() {
 
     useEffect(() => {
         const {pathname} = location;
-        if (pathname === "/create") setBreadCrumbs(getCreateMeetingBreadCrumbs(navigate))
+        if (pathname === "/create") setBreadCrumbs(getCreateMeetingBreadCrumbs(navigate));
+        else if (pathname === "/create1on1") setBreadCrumbs(getOneOnOneMeetingBreadCrumbs(navigate));
+        else if (pathname === "/create-video-confirence") setBreadCrumbs(getVideoConferenceBreadCrumbs(navigate));
+        else if (pathname === "/mymeetings") setBreadCrumbs(getMyMeetingsBreadCrumbs(navigate));
+        else if (pathname === "/meetings") setBreadCrumbs(getMeetingsBreadCrumbs(navigate))
     }, [navigate, location]);
 
     const section = [
