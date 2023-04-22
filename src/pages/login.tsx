@@ -11,10 +11,10 @@ import {
     EuiPanel
 } from '@elastic/eui'
 import animation from '../assets/animation.gif'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo_transparent.png'
 import {GoogleAuthProvider, onAuthStateChanged, signInWithPopup} from "firebase/auth"
 import {firebaseAuth, userRef} from "../utils/FirebaseConfig";
-import {query, where, getDocs, addDoc, collection} from 'firebase/firestore'
+import {query, where, getDocs, addDoc} from 'firebase/firestore'
 import {useNavigate} from 'react-router-dom'
 import {useAppDispatch} from "../app/hooks";
 import {setUser} from '../app/slices/AuthSlices'
@@ -25,17 +25,16 @@ function Login() {
     const dispatch = useAppDispatch();
 
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if(currentUser) navigate('/')
+        if (currentUser) navigate('/')
     });
 
     const login = async () => {
         const provider = new GoogleAuthProvider();
-        const {user:{displayName,email,uid}} = await signInWithPopup(firebaseAuth, provider);
-        // console.log({data})
-        if(email){
+        const {user: {displayName, email, uid}} = await signInWithPopup(firebaseAuth, provider);
+        if (email) {
             const fireStoreQuery = query(userRef, where("uid", "==", uid))
             const fetchedUsers = await getDocs(fireStoreQuery);
-            if(fetchedUsers.docs.length === 0){
+            if (fetchedUsers.docs.length === 0) {
                 await addDoc(userRef, {
                     uid,
                     name: displayName,
@@ -45,7 +44,7 @@ function Login() {
             }
         }
         navigate('/');
-        dispatch(setUser({uid, name:displayName, email}));
+        dispatch(setUser({uid, name: displayName, email}));
     };
 
     return (
@@ -62,10 +61,15 @@ function Login() {
                                 <EuiImage src={animation} alt="Error"/>
                             </EuiFlexItem>
                             <EuiFlexItem>
-                                <EuiImage src={logo} alt="Error" size='230px'/>
+                                {/* <EuiImage src={logo} className="w-100 h-50" alt="Error" size='230px'/> */}
+                                <EuiText textAlign={"center"}>
+                                    <h2 style={{fontSize: "60px", color: "#0b5cff"}}>
+                                        Videoic
+                                    </h2>
+                                </EuiText>
                                 <EuiSpacer size='xs'/>
                                 <EuiText textAlign="center">
-                                    <h2>
+                                    <h2 style={{marginTop: "32px"}}>
                                         <EuiTextColor>One platform to</EuiTextColor>
                                         <EuiTextColor color='#0b5cff'> connect</EuiTextColor>
                                     </h2>

@@ -57,7 +57,7 @@ function Headers() {
                 <Link to={'/'}>
                     <EuiText>
                         <h2 style={{padding: "0 1vw"}}>
-                            <EuiTextColor color='#0b5cff'>Zoom</EuiTextColor>
+                            <EuiTextColor color='#0b5cff'>Videoic</EuiTextColor>
                         </h2>
                     </EuiText>
                 </Link>
@@ -80,7 +80,7 @@ function Headers() {
         {
             items: [
                 <EuiFlexGroup justifyContent={"center"} alignItems={"center"} direction={"row"} style={{gap: "2vw"}}>
-                    <EuiFlexItem grow={false} style={{flexBasis: "fit-content"}}>
+                    {/* <EuiFlexItem grow={false} style={{flexBasis: "fit-content"}}>
                         {isDarkTheme ?
                             <EuiButtonIcon onClick={invertTheme} iconType={'sun'} display={'fill'} size={"s"}
                                            color={"warning"} aria-label={'invert-theme-button'}/>
@@ -88,7 +88,7 @@ function Headers() {
                             <EuiButtonIcon onClick={invertTheme} iconType={'moon'} display={'fill'} size={"s"}
                                            color={"ghost"} aria-label={'invert-theme-button'}/>
                         }
-                    </EuiFlexItem>
+                    </EuiFlexItem> */}
                     <EuiFlexItem grow={false} style={{flexBasis: "fit-content"}}>
                         <EuiButtonIcon onClick={logout} iconType={'lock'} display={'fill'} size={"s"}
                                        aria-label={'logout-button'}/>
@@ -103,7 +103,7 @@ function Headers() {
                 <Link to={'/'}>
                     <EuiText>
                         <h2 style={{padding: "0 1vw"}}>
-                            <EuiTextColor color='#0b5cff'>Zoom</EuiTextColor>
+                            <EuiTextColor color='#0b5cff'>Videoic</EuiTextColor>
                         </h2>
                     </EuiText>
                 </Link>
